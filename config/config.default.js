@@ -15,6 +15,15 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1582823065609_3268';
 
+  // 修改端口号
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 7001,
+      hostname: '192.168.0.102',
+    }
+  };
+
   // add your middleware config here
   config.middleware = [];
   config.security = {
@@ -32,12 +41,40 @@ module.exports = appInfo => {
   //   agent: false
   // }
   config.sequelize = {
-    dialect: 'mysql',
-    host: '127.0.0.1',
-    user: 'root',
-    password: '123',
-    port: 3306,
-    database: 'egg-sequelize-doc-default',
+    datasources: [
+      {
+        delegate: 'model', // load all models to app.model and ctx.model
+        baseDir: 'model',
+        dialect: 'mysql',
+        host: '127.0.0.1',
+        username: 'root',
+        password: '123',
+        port: 3306,
+        database: 'egg-sequelize-doc-default',
+        define: {
+          
+          // 禁止修改表名，默认情况下，sequelize将自动将所有传递的模型名称（define的第一个参数）转换为复数
+          freezeTableName: true,
+          timestamps: false,
+        }
+      },
+      {
+        delegate: 'bookModel', // load all models to app.model and ctx.model
+        baseDir: 'book_model',
+        dialect: 'mysql',
+        database: 'novel_aiz5_com',
+        host: '118.24.156.247',
+        port: 3306,
+        username: 'novel_aiz5_com',
+        password: 'wP38mBYrTmPK2N5Z',
+        define: {
+          // 禁止修改表名，默认情况下，sequelize将自动将所有传递的模型名称（define的第一个参数）转换为复数
+          freezeTableName: true,
+          timestamps: false,
+          underscored: false
+        }
+     },
+    ],
   };
   
 
