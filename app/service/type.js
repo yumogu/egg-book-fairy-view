@@ -13,7 +13,6 @@ class UserService extends Service {
     // const result = await this.app.mysql.insert('users', data);
     // const user = await this.ctx.mysql.query('INSERT INTO users (name, age) VALUES (?, ?)', data.name,data.age);
     // const insertSuccess = result.affectedRows === 1;
-    console.log('user', user)
     return user
   }
 }

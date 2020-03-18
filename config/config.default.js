@@ -20,7 +20,7 @@ module.exports = appInfo => {
     listen: {
       path: '',
       port: 7001,
-      hostname: '192.168.0.102',
+      hostname: '192.168.0.103',
     }
   };
 
@@ -65,8 +65,8 @@ module.exports = appInfo => {
         database: 'novel_aiz5_com',
         host: '118.24.156.247',
         port: 3306,
-        username: 'novel_aiz5_com',
-        password: 'wP38mBYrTmPK2N5Z',
+        username: 'yxy',
+        password: '123456',
         define: {
           // 禁止修改表名，默认情况下，sequelize将自动将所有传递的模型名称（define的第一个参数）转换为复数
           freezeTableName: true,

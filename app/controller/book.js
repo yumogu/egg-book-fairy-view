@@ -7,7 +7,6 @@ class BooksController extends Controller {
     const { ctx, service } = this;
     // const author = ctx.session.userId;
     const req = Object.assign(ctx.request.body);
-    console.log('tag页', req)
     const offset = (req.page-1)*req.rows || 10;
     // // 调用 model 查询数据
     const res = await ctx.bookModel.Book.findAll({

@@ -15,6 +15,5 @@ module.exports = app => {
     isJin: INTEGER,
     reptileAddress: STRING,
   });
-
   return Catalog;
 };

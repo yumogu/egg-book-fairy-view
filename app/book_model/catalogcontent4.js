@@ -2,12 +2,12 @@
 
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
-  const Catalogcontent = app.bookModel.define('catalogcontent', {
+  const catalogcontent4 = app.bookModel.define('catalogcontent4', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     bookId: INTEGER,
     content: STRING,
     num: INTEGER,
     catalogId: INTEGER,
   });
-  return Catalogcontent;
+  return catalogcontent4;
 };

@@ -15,7 +15,6 @@ class UserController extends Controller {
     for (let v in userInfo) {
       tempObj[""+v.replace(/([A-Z])/g,"_$1").toLowerCase()+""] = userInfo[v];
     }
-    console.log(tempObj)
     // // 调用 Service 进行业务处理
     const res = await service.user.save(tempObj);
     // 设置响应内容和响应状态码
