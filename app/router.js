@@ -13,4 +13,6 @@ module.exports = app => {
   router.post('/api/catalogcontent', controller.catalogcontent.catalogList);
   router.post('/api/bookshelf/add', controller.bookshelf.index);
   router.post('/api/bookshelf/list', controller.bookshelf.list);
+  // router.post('/api/catalog/catalogDetailById', controller.catalog.catalogDetailById);
+  
 };

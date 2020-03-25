@@ -1,7 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
-
+const IP = require('./ip')
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -20,7 +20,7 @@ module.exports = appInfo => {
     listen: {
       path: '',
       port: 7001,
-      hostname: '192.168.0.103',
+      hostname: IP,
     }
   };
 
@@ -48,7 +48,7 @@ module.exports = appInfo => {
         dialect: 'mysql',
         host: '127.0.0.1',
         username: 'root',
-        password: '123',
+        password: '123456',
         port: 3306,
         database: 'egg-sequelize-doc-default',
         define: {
