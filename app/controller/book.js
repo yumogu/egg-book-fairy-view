@@ -9,7 +9,8 @@ class BooksController extends Controller {
     const { ctx, service } = this;
     // const author = ctx.session.userId;
     const req = Object.assign(ctx.request.body);
-    const offset = (req.page-1)*req.rows || 10;
+    const offset = (req.page-1)*req.rows;
+    // console.log('booksList=============================', res)
     let where = {}
     if (req.type && req.type.length > 0) {
       where.bookType = req.type
@@ -26,7 +27,7 @@ class BooksController extends Controller {
       offset,
       
     })
-    console.log('booksList=============================', res)
+    
     
     // 设置响应内容和响应状态码
     ctx.body = {resultCode: 1, data: res};
