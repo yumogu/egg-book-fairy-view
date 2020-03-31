@@ -12,13 +12,27 @@ class BookshelfService extends Service {
         bookId: options.bookId
       }
     }
+    select.where = {
+      userId: options.userId
+    }
     const res = await ctx.model.Bookshelf.findAll(select);
     return res
   }
   async add(options) {
     console.log('add==================options', options)
     const { ctx } = this
-    const res = await ctx.model.Bookshelf.create(options);
+    const res = await ctx.model.Bookshelf.findOrCreate({
+      where: {
+        bookId: options.bookId,
+        userId: options.userId
+    }, 
+      defaults: options
+    }).spread((user, created) => {
+      console.log('user, created==========================', user, created)
+      if(created === false) {
+        user.update(options)
+      }
+    })
     return res
   }
   async check(options) {

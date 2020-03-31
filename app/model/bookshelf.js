@@ -8,6 +8,7 @@ module.exports = app => {
     userId: INTEGER,
     bookId: INTEGER,
     catalogId: INTEGER,
+    catalogName: STRING,
     bookName: STRING,
     author: STRING,
     description: STRING,
@@ -15,6 +16,7 @@ module.exports = app => {
     bookType: INTEGER,
     updataTime: DATE,
     bookStatus: INTEGER,
+    currentPage: INTEGER
   });
 
   return Bookshelf;
